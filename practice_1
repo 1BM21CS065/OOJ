@@ -1,0 +1,63 @@
+import java.util.Scanner;
+class cust
+{
+    private int cust_no, qty;
+    private double price, total_price, dis, net_price;
+    private String name = new String();
+    cust(String n , int cn, int q)
+	{
+	   name=n;
+	   cust_no=cn;
+	   qty=q;
+	}
+  void getdata()
+    {
+        System.out.println("Enter the details of the customer");
+        Scanner s = new Scanner(System.in);
+        System.out.println("Customer name :");
+	name=s.next();
+	System.out.println("Customer number :");
+	cust_no = s.nextInt();
+	System.out.println("Quantity of items purchased :");
+	qty=s.nextInt();
+	System.out.println("Enter the price of one item");
+	price=s.nextDouble();
+	}
+  void cal_dis()
+   {
+      total_price=price*qty;
+      if(total_price>=25000)
+      dis=(0.10*total_price);
+      else if(total_price>=50000)
+      dis=(0.25*total_price);
+      net_price=total_price-dis;
+   }
+  void show()
+    {
+	System.out.println("Customer details");
+        System.out.println("Customer name : "+name);
+	System.out.println("Customer number : "+cust_no);
+	System.out.println("Quantity of items purchased : "+qty);
+	System.out.println("Total price : "+total_price);
+	System.out.println("Net price  : "+net_price);
+	System.out.println("Discount : "+dis);
+   }
+}
+class cust1
+{
+    public static void main(String[] ss)
+	{
+	   Scanner s = new Scanner(System.in);
+	   System.out.println("Enter the number of customers");
+	   int n = s.nextInt();
+	   cust c[] = new cust[n];
+	   for(int i=0; i<n; i++)
+	      {
+	         c[i]=new cust("ABC", 123, 5);
+		 c[i].getdata();
+		 c[i].cal_dis();
+		 c[i].show();
+	     }
+    }
+}	
+	
